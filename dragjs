@@ -1,0 +1,49 @@
+var currentlyDraggedNode;
+
+function onDragEnter(event) {
+    console.log(event);
+}
+
+function startDrag(event) {
+    var dt = event.dataTransfer;
+    dt.effectAllowed = 'copy';
+    dt.setData('text/json', '{name:"CourseFactory ",url:"http://www.google.com"}');
+    dt.setData('text/plain', event.srcElement.outerHTML);
+
+    currentlyDraggedNode = event.target;
+    currentlyDraggedNode.classList.add("disciplina");
+}
+
+function doDragOver(event) {
+    var isJson = container(event.dataTransfer.types, "text/json");
+    event.dataTransfer.dropEffect = "copy";
+    if (isJson)
+        event.preventDefault();
+}
+
+function onDrop(event) {
+    var data = event.dataTransfer.getData("text/json");
+    var template = event.dataTransfer.getData("text/plain");
+    var e = document.createElement('div');
+    console.log(data);
+    e.innerHTML = template;
+    event.target.appendChild(e);
+    event.preventDefault();
+
+    setHelpVisibility(this, false);
+}
+
+// função auxiliar
+
+function container(typeList, value) {
+    for (var i = 0; i < typeList.length; ++i) {
+        if (typeList[i] === value) return true;
+    }
+    return false;
+}
+
+function setHelpVisibility(node, isVisible) {
+    currentlyDraggedNode.parentNode.removeChild(currentlyDraggedNode);
+    currentlyDraggedNode.classList.remove("disciplina");
+
+}
