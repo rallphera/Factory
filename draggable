@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/dragstyle.css">
+    <script type="text/javascript" src="js/drag.js"></script>
+    <title></title>
+</head>
+<body>
+
+
+
+<div class="main">
+
+    <div class="tabDisciplina">
+        <div draggable="true" ondragstart="startDrag(event)" class="disciplinas">Disciplina</div>
+        <div draggable="true" ondragstart="startDrag(event)" class="disciplinas">Disciplina</div>
+        <div draggable="true" ondragstart="startDrag(event)" class="disciplinas">Disciplina</div>
+        <div draggable="true" ondragstart="startDrag(event)" class="disciplinas">Disciplina</div>
+        <div draggable="true" ondragstart="startDrag(event)" class="disciplinas">Disciplina</div>
+        <div draggable="true" ondragstart="startDrag(event)" class="disciplinas">Disciplina</div>
+    </div>
+
+    <div tabela1="true" ondragover="doDragOver(event)" ondragenter="onDragEnter(event, dis)" onDrop="onDrop(event)" class="tabelas"></div>
+    <div tabela2="true" ondragover="doDragOver(event)" onDrop="onDrop(event)" class="tabelas"></div>
+
+</div>
+
+
+
+</body>
+</html>
